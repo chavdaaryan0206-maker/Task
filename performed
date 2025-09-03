@@ -8,7 +8,7 @@ cursor = conn.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT, age INTEGER)")
 
 # Insert data
-cursor.execute("INSERT INTO users (name, age) VALUES (?, ?)", ("Hemal", 18))
+cursor.execute("INSERT INTO users (name, age) VALUES (?, ?)", ("Aryan", 18))
 conn.commit()
 
 # Read data
@@ -16,11 +16,11 @@ cursor.execute("SELECT * FROM users")
 print(cursor.fetchall())
 
 # Update data
-cursor.execute("UPDATE users SET age=? WHERE name=?", (19, "Hemal"))
+cursor.execute("UPDATE users SET age=? WHERE name=?", (19, "Aryan"))
 conn.commit()
 
 # Delete data
-cursor.execute("DELETE FROM users WHERE name=?", ("Hemal",))
+cursor.execute("DELETE FROM users WHERE name=?", ("Aryan",))
 conn.commit()
 
 conn.close()
