@@ -1,0 +1,26 @@
+import sqlite3
+
+# Connect to database (or create if not exists)
+conn = sqlite3.connect("users.db")
+cursor = conn.cursor()
+
+# Create table
+cursor.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT, age INTEGER)")
+
+# Insert data
+cursor.execute("INSERT INTO users (name, age) VALUES (?, ?)", ("Hemal", 18))
+conn.commit()
+
+# Read data
+cursor.execute("SELECT * FROM users")
+print(cursor.fetchall())
+
+# Update data
+cursor.execute("UPDATE users SET age=? WHERE name=?", (19, "Hemal"))
+conn.commit()
+
+# Delete data
+cursor.execute("DELETE FROM users WHERE name=?", ("Hemal",))
+conn.commit()
+
+conn.close()
